@@ -1,0 +1,44 @@
+
+<p id="notice"><%= notice %></p>
+
+<%= params %>
+
+<h1 class="bigfont maincolor">Listing Recipes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Author</th>
+      <th>Ingredients</th>
+      <th>Instructions</th>
+      <th>Average Rating</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @recipes.each do |recipe| %>
+      <tr>
+        <td><%= recipe.title %></td>
+        <td><%= recipe.author %></td>
+        <td><%= recipe.ingredients %></td>
+        <td><%= recipe.instructions %></td>
+
+        <td>
+          <% if !recipe.ratings.average(:number).nil? %>
+          <%= recipe.ratings.average(:number).round(1) %>
+          <% else %>
+          <%= 'Not Available' %>
+          <% end %>
+        </td>
+        <td><%= link_to 'Show', recipe %></td>
+        <td><%= link_to 'Edit', edit_recipe_path(recipe) %></td>
+        <td><%= link_to 'Destroy', recipe, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<br>
+
+<%= link_to 'New Recipe', new_recipe_path %>

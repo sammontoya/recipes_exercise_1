@@ -1,0 +1,68 @@
+<div class = "container">
+<p id="notice"><%= notice %></p>
+
+<%= params %>
+
+<h2 class="maincolor bigfont">
+  <%= @recipe.title %>
+</h2>
+
+<p>
+  <strong>Author:</strong>
+  <%= @recipe.author %>
+</p>
+
+<p>
+  <strong>Ingredients:</strong>
+  <%= @recipe.ingredients %>
+</p>
+
+<p>
+  <strong>Instructions:</strong>
+  <%= @recipe.instructions %>
+</p>
+
+<p>
+  <strong>Tags:</strong>
+  <% @recipe.tags.each do |tag| %>
+  <%= tag.name %>,
+  <% end %>
+</p>
+
+<p>
+  <% if !@recipe.ratings.average(:number).nil? %>
+  <strong>Average Ratings:</strong>
+  <%= @recipe.ratings.average(:number).round(1) %>
+  <% end %>
+</p>
+
+<form action= "/recipes/<%=@recipe.id%>/add_tag" method="post">
+  <div class="field">
+    <label class="maincolor" for="tag_name" id="tag_name">Add Tag</label><br>
+    <input type="text" name="tag[name]" id="tag_name" />
+  </div>
+  <div class="actions">
+    <input type="submit" name="commit" value="Add Tag" />
+  </div>
+</form>
+
+<p class="maincolor">Add Rating</p>
+<form action= "/recipes/<%=@recipe.id%>/add_rating" method="post">
+    <select name="rating[number]">
+      <option value="">Please select</option>
+      <option value="1">1 Star</option>
+      <option value="2">2 Star</option>
+      <option value="3">3 Star</option>
+      <option value="4">4 Star</option>
+      <option value="5">5 Star</option>
+    </select>
+    <div class="actions">
+      <input type="submit" name="commit" value="Add Rating" />
+    </div>
+</form>
+
+
+
+<%= link_to 'Edit', edit_recipe_path(@recipe) %> |
+<%= link_to 'Back', recipes_path %>
+</div>

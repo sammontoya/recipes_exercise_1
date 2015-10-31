@@ -1,0 +1,76 @@
+/*css for ALL pages, main theme*/
+h1, h2, h3, p {
+  font-family: 'Poppins', sans-serif;
+}
+.reallybigfont{
+  font-size: 5em;
+  font-weight: bold;
+
+}
+.maincolor{
+  color:orange;
+}
+
+
+/*css for MAIN landing page*/
+#mainCarousel {
+  height: 450px;
+}
+
+.carousel-inner{
+  height: 450px;
+  width: 100%;
+}
+
+.carousel-caption{
+  margin-right: -10%;
+  margin-left: 25%;
+  margin-bottom: 10%;
+  text-align: right;
+  background-color: rgba(0, 0, 0, 0.6);
+  border-radius: 25px;
+}
+
+.carousel-caption-text{
+  margin-right: 20px;
+  font-size: 3em;
+  opacity: 100;
+}
+
+.carousel-indicators li{
+  background-color: rgba(0, 0, 0, 0.6);
+  border: 1px solid black;
+/*figure out how to hide at 665px width*/
+}
+.carousel-indicators .active{
+  background-color: orange;
+  border: 1px solid orange;
+}
+
+#headline {
+  text-align: center;
+  padding-top: 20px;
+}
+
+#box {
+  background-color: orange;
+  height: 8px;
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+.link-box {
+  text-align: center;
+  border-top: 10px;
+}
+
+.link-description{
+  text-align: center;
+}
+.black {
+  color: black;
+}
+
+.black:hover{
+  color: gray;
+}
